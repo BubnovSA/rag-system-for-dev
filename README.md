@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/packages-12%20clean-22c55e.svg" alt="12 packages"/>
   <img src="https://img.shields.io/badge/sandbox-87.5%25-22c55e.svg" alt="87.5% sandbox"/>
   <img src="https://img.shields.io/badge/real--repo-100%25-22c55e.svg" alt="100% real repos"/>
-  <img src="https://img.shields.io/badge/version-v1.70-blue.svg" alt="v1.70"/>
+  <img src="https://img.shields.io/badge/version-v1.71%20(frozen)-blue.svg" alt="v1.71 frozen"/>
 </p>
 
 <p align="center">
@@ -25,7 +25,7 @@
 
 ## Benchmark
 
-> Best results from v1.68c (2026-05-29). Raw data: [BENCHMARK.md](BENCHMARK.md)
+> Re-confirmed on **v1.71** (2026-06-12): combined real-repo **12/12 (100%)**. Best results established in v1.68c (2026-05-29). Raw data: [BENCHMARK.md](BENCHMARK.md)
 
 ### By target codebase
 
@@ -264,6 +264,12 @@ The pipeline is fully deterministic — every step is logged and events stream t
 8. **Git Engine** — commits to `auto/task-*` branch; skips commit if validation never converged
 
 Context is supplied by a **RAG Engine**: hybrid BM25 + HNSW dense retrieval (RRF merge) → 1-hop AST graph expansion → token-budgeted output.
+
+<p align="center">
+  <img src="assets/code-graph.png" width="520" alt="AST symbol-dependency graph"/>
+  <br/>
+  <em>Auto-generated AST symbol graph built by the <code>code-graph</code> package — nodes are functions/types, edges are call &amp; reference relationships. This is the structure the RAG Engine traverses for 1-hop context expansion.</em>
+</p>
 
 ---
 
